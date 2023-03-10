@@ -5,7 +5,11 @@ import { theme } from 'constants';
 import { App } from 'components/App';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = ReactDOM.createRoot(rootElement);
+
+root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <App />

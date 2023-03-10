@@ -11,7 +11,7 @@ import { report } from 'utils';
 
 const LS_CONTACTS = 'ls_contacts';
 
-export const App = () => {
+export const App: React.FC = () => {
   const [contacts, setContacts] = useState(
     () => JSON.parse(localStorage.getItem(LS_CONTACTS)) || initialState
   );
