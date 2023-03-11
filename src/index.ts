@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'constants';
+// import { ThemeProvider } from 'styled-components';
+// import { theme } from 'constants';
 import { App } from 'components/App';
 import './index.css';
 
@@ -10,9 +10,10 @@ if (!rootElement) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <App />
+  // </React.StrictMode>
 );
+
+// <ThemeProvider theme={theme}>
+// </ThemeProvider>
