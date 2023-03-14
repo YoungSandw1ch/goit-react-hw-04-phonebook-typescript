@@ -7,7 +7,7 @@ import { ContactForm } from '../ContactForm';
 import { ContactList } from '../ContactList';
 import { Filter } from '../Filter';
 import { initialState } from 'constants';
-import { report } from 'utils';
+import report from 'utils/notify';
 
 const LS_CONTACTS = 'ls_contacts';
 
