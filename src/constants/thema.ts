@@ -1,4 +1,6 @@
-export const theme = {
+import { ITheme } from 'interfaces/styled';
+
+export const theme: ITheme = {
   colors: {
     autumnOrange: {
       pumpkin: '#D55448',

@@ -13,19 +13,26 @@ const LS_CONTACTS = 'ls_contacts';
 
 export const App: React.FC = () => {
   const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem(LS_CONTACTS)) || initialState
+    (): typeof initialState => {
+      const contacts = localStorage.getItem(LS_CONTACTS);
+      if (!contacts) {
+        return initialState;
+      }
+      return JSON.parse(contacts);
+    }
+    // JSON.parse(localStorage.getItem(LS_CONTACTS)) || initialState
   );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
     try {
       localStorage.setItem(LS_CONTACTS, JSON.stringify(contacts));
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   }, [contacts]);
 
-  const contactFormSubmit = (name, number) => {
+  const contactFormSubmit = (name: string, number: string) => {
     const id = nanoid();
     setContacts(prevContacts => {
       const isContactExist = prevContacts.reduce(
@@ -41,7 +48,7 @@ export const App: React.FC = () => {
     });
   };
 
-  const deleteContact = id =>
+  const deleteContact = (id: string) =>
     setContacts(contacts => contacts.filter(contact => contact.id !== id));
 
   const filterContacts = () => {
