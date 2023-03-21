@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { Title } from '../Common';
 import { Wrapper } from './App.styled';
@@ -11,7 +11,7 @@ import report from 'utils/notify';
 
 const LS_CONTACTS = 'ls_contacts';
 
-export const App: React.FC = () => {
+const App: FunctionComponent = () => {
   const [contacts, setContacts] = useState(
     (): typeof initialState => {
       const contacts = localStorage.getItem(LS_CONTACTS);
@@ -80,3 +80,5 @@ export const App: React.FC = () => {
     </Container>
   );
 };
+
+export default App;

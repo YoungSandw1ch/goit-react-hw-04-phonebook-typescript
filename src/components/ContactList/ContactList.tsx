@@ -1,8 +1,22 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Box } from 'components/Common';
 import { ContactItem } from 'components/ContactList/ContactItem';
+import React from 'react';
+import { JsxElement } from 'typescript';
 
-export const ContactList = ({ contacts, onContactDelete }) => {
+interface IContacts {
+  id: string;
+  name: string;
+  number: string;
+}
+
+interface IProps {
+  contacts: IContacts[];
+  onContactDelete: any;
+}
+
+export const ContactList: React.FC<IProps> = props => {
+  const { contacts, onContactDelete } = props;
   return (
     <Box
       as="ul"
@@ -25,13 +39,13 @@ export const ContactList = ({ contacts, onContactDelete }) => {
   );
 };
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-  onContactDelete: PropTypes.func.isRequired,
-};
+// ContactList.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.exact({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//     }).isRequired
+//   ).isRequired,
+//   onContactDelete: PropTypes.func.isRequired,
+// };
