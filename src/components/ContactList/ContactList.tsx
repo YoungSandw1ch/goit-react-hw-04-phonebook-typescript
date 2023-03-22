@@ -2,21 +2,19 @@
 import { Box } from 'components/Common';
 import { ContactItem } from 'components/ContactList/ContactItem';
 import React from 'react';
-import { JsxElement } from 'typescript';
 
-interface IContacts {
-  id: string;
-  name: string;
-  number: string;
-}
+// interface IContacts {
+//   id: string;
+//   name: string;
+//   number: string;
+// }
 
-interface IProps {
-  contacts: IContacts[];
-  onContactDelete: any;
-}
+// interface IProps {
+//   contacts: IContacts[];
+//   onContactDelete: (id: string) => void;
+// }
 
-export const ContactList: React.FC<IProps> = props => {
-  const { contacts, onContactDelete } = props;
+export const ContactList = (props: any) => {
   return (
     <Box
       as="ul"
@@ -26,13 +24,13 @@ export const ContactList: React.FC<IProps> = props => {
       px={4}
       overflowY="scroll"
     >
-      {contacts.map(({ id, name, number }) => (
+      {props.contacts.map(({ id, name, number }: any) => (
         <ContactItem
           key={id}
           id={id}
           name={name}
           number={number}
-          onDelete={onContactDelete}
+          onDelete={props.onContactDelete}
         />
       ))}
     </Box>

@@ -1,7 +1,15 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { Item, Text, Span, CloseButton } from './ContactItem.styled';
 
-export const ContactItem = ({ name, number, id, onDelete }) => {
+interface IProps {
+  name: string;
+  number: string;
+  id: string;
+  onDelete: (id: string) => void;
+}
+
+export const ContactItem: FC<IProps> = ({ name, number, id, onDelete }) => {
   const onClick = () => onDelete(id);
   return (
     <Item>
@@ -15,7 +23,7 @@ export const ContactItem = ({ name, number, id, onDelete }) => {
   );
 };
 
-ContactItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
+// ContactItem.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.string.isRequired,
+// };
